@@ -14,6 +14,12 @@ class _FilterChipDemoState extends State<FilterChipDemo> {
   List<String> filterDataArr;
   var filterSelectedArr = List<String>();
 
+  // choice chip 数据源
+  List<String> choiceChipDataArr;
+  // 当前选择的choice chip
+  String _currentChoice = "";
+
+  // 重置或者是初始化数据
   void _resetData() {
     this.filterDataArr = [
       "apple",
@@ -21,11 +27,13 @@ class _FilterChipDemoState extends State<FilterChipDemo> {
       "lemon",
       "orange",
     ];
-    if (this.filterSelectedArr.isEmpty == false) {
-      for (int i = 0; i >= 0; i--) {
-        this.filterSelectedArr.removeAt(i);
-      }
-    }
+    this.choiceChipDataArr = [
+      "apple",
+      "bannal",
+      "lemon",
+      "orange",
+    ];
+    this.filterSelectedArr = [];
   }
 
   @override
@@ -37,6 +45,14 @@ class _FilterChipDemoState extends State<FilterChipDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.restore_page),
+        onPressed: () {
+          setState(() {
+            this._resetData();
+          });
+        },
+      ),
       appBar: AppBar(
         title: Text(_titleString),
       ),
@@ -46,7 +62,7 @@ class _FilterChipDemoState extends State<FilterChipDemo> {
           spacing: 8.0,
           runSpacing: 8.0,
           children: <Widget>[
-            Text("filter chip demo:"),
+            Text("filter chip demo (多选):"),
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
@@ -71,12 +87,33 @@ class _FilterChipDemoState extends State<FilterChipDemo> {
                 ),
               ],
             ),
-            Divider(height: 8.0,color: Colors.orange,),
-
-            Text("Choice Chip Demo:"),
-            Column(
-              
+            Divider(
+              height: 8.0,
+              color: Colors.orange,
             ),
+            Text("Choice Chip Demo (单选):"),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Wrap(
+                  spacing: 8.0,
+                  runSpacing: 8.0,
+                  children: this.choiceChipDataArr.map((str) {
+                    return ChoiceChip(
+                      label: Text(str),
+                      selected: str == _currentChoice,
+                      selectedColor: Colors.black,
+                      onSelected: (bool selected) {
+                        setState(() {
+                          if (selected) {_currentChoice = str;}
+                        });
+                      },
+                    );
+                  }).toList(),
+                ),
+              ],
+            ),
+            Divider(height: 8.0, color: Colors.orange,),
           ],
         ),
       ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'chip_page.dart';
 import 'action_chip_page.dart';
 import 'filter_chip_page.dart';
+import 'dataTable_page.dart';
 
 class MDCPage extends StatefulWidget {
   @override
@@ -55,6 +56,16 @@ class _MDCPageState extends State<MDCPage> {
         onPressed: () {
           Navigator.of(context).push(MaterialPageRoute(builder: (context){
             return FilterChipDemo(str);
+          }));
+        },
+      );
+    }else if (index == 3) {
+      str = "DataTable Demo";
+      return RaisedButton(
+        child: Text(str),
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context){
+            return DataTablePage();
           }));
         },
       );
