@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../model/models.dart';
 
 class DataTablePage extends StatefulWidget {
   DataTablePage({Key key}) : super(key: key);
@@ -15,33 +16,34 @@ class _DataTablePageState extends State<DataTablePage> {
         title: Text("DataTable Demo"),
       ),
       body: Container(
+        width: double.infinity,
         padding: EdgeInsets.all(16.0),
         child: ListView(
           children: <Widget>[
             DataTable(
+              dataRowHeight: 64,
               columns: [
                 DataColumn(
-                  label: Text("姓名"),
+                  label: Text("标题一"),
                 ),
                 DataColumn(
-                  label: Text("年龄"),
+                  label: Text("标题二"),
+                ),
+                DataColumn(
+                  label: Text("图片"),
                 ),
               ],
-              rows: [
-                DataRow(cells: [
-                  DataCell(Text("chen wang")),
-                  DataCell(Text("22")),
-                ]),
-                DataRow(cells: [
-                  DataCell(Text("chen wang222")),
-                  DataCell(Text("22222")),
-                ]),
-                DataRow(cells: [
-                  DataCell(Text("chen wang2333")),
-                  DataCell(Text("33333")),
-                ]),
-              ],
-            )
+              rows: postDataArr.map((item) {
+                return DataRow(
+                  cells: [
+                    DataCell(Text(item.title)),
+                    DataCell(Text(item.subTitle)),
+                    DataCell(Image.network(item.imgUrl)),
+                    // DataCell(Text(item.subTitle)),
+                  ]
+                );
+              }).toList(),
+            ),
           ],
         ),
       ),

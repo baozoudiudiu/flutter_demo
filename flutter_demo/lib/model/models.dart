@@ -9,7 +9,7 @@ class PostModel  {
             this.imgUrl);
 }
 
-List<PostModel> dataArr = [
+final List<PostModel> postDataArr = [
   PostModel("我是标题", 
   "发水电费水电费", 
   "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577096195146&di=22abe46c833d21c9f575345ad468dc63&imgtype=0&src=http%3A%2F%2Fwww2.flightclub.cn%2Fimgshow%2Fnews__uploads__allimg__170510__11-1F5101R433.jpg%2F640%2F100.jpg"),
@@ -23,7 +23,7 @@ List<PostModel> dataArr = [
    "破日体育局蛮好吃摸奶不",
     "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577096252433&di=91f40b82573d437411933e0cd8577c76&imgtype=0&src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_bt%2F0%2F11010559615%2F641.jpg"),
   PostModel("是打飞机客房", 
-  "看人家看孤苦伶仃翻江搅海开始搞", 
+  "看人家看孤苦伶仃", 
   "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577096252433&di=96e4053a4a55b56e575bac136722bfc4&imgtype=0&src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_bt%2F0%2F11000979729%2F641.jpg"),
   PostModel("热土沃日沃日", 
   "32呃呃突然一条街梵蒂冈", 

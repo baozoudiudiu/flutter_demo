@@ -3,6 +3,8 @@ import 'chip_page.dart';
 import 'action_chip_page.dart';
 import 'filter_chip_page.dart';
 import 'dataTable_page.dart';
+import 'pageTable_page.dart';
+import 'card_page.dart';
 
 class MDCPage extends StatefulWidget {
   @override
@@ -66,6 +68,26 @@ class _MDCPageState extends State<MDCPage> {
         onPressed: () {
           Navigator.of(context).push(MaterialPageRoute(builder: (context){
             return DataTablePage();
+          }));
+        },
+      );
+    }else if (index == 4) {
+      str = "PaginatedDataTable Demo";
+      return RaisedButton(
+        child: Text(str),
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context){
+            return PageDataTablePage();
+          }));
+        },
+      );
+    }else if (index == 5) {
+      str = "Card Demo";
+      return RaisedButton(
+        child: Text(str),
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context){
+            return CardDemo();
           }));
         },
       );
