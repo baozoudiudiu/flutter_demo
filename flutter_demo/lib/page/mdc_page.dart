@@ -5,6 +5,7 @@ import 'filter_chip_page.dart';
 import 'dataTable_page.dart';
 import 'pageTable_page.dart';
 import 'card_page.dart';
+import 'stepper_page.dart';
 
 class MDCPage extends StatefulWidget {
   @override
@@ -88,6 +89,16 @@ class _MDCPageState extends State<MDCPage> {
         onPressed: () {
           Navigator.of(context).push(MaterialPageRoute(builder: (context){
             return CardDemo();
+          }));
+        },
+      );
+    }else if (index == 6) {
+      str = "Stepper Demo";
+      return RaisedButton(
+        child: Text(str),
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context){
+            return StepperPageDemo();
           }));
         },
       );
